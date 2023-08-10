@@ -1,0 +1,44 @@
+<h1>Template Form</h1>
+<form  (ngSubmit)="onSubmit(template)" #template="ngForm">
+    <label>First Name: </label>
+    <input type="text" name="FirstName" id="FirstName" placeholder="First Name" pattern="[a-zA-Z]+$" ngModel #FirstName="ngModel" required/>
+    
+    <br>
+    <span *ngIf="FirstName.invalid && FirstName.touched" style="color: red;">Please enter valid input (a-z or A-Z)</span>
+    <br>
+
+    <label>Middle Name: </label>
+    <input type="text" name="MiddleName" id="MiddleName" placeholder="Middle Name" pattern="[a-zA-Z]+$"  ngModel #MiddleName="ngModel">
+
+    <br>
+    <span *ngIf="MiddleName.invalid && MiddleName.touched" style="color: red;">Please enter valid input (a-z or A-Z)</span>
+    <br>
+
+    <label>Last Name: </label>
+    <input type="text" name="LastName" id="LastName" placeholder="Last Name" pattern="[a-zA-Z]+$"  ngModel #LastName="ngModel" required/>
+
+    <br>
+    <span *ngIf="LastName.invalid && LastName.touched" style="color: red;">Please enter valid input (a-z or A-Z)</span>
+    <br>
+
+    <label>Phone Number: </label>
+    <input type="tel" name="PhoneNumber" id="PhoneNumber" placeholder="Phone Number" ngModel #PhoneNumber="ngModel" pattern="[0-9]{10}" required/>
+
+    <br>
+    <span *ngIf="PhoneNumber.invalid && PhoneNumber.touched" style="color: red;">Please enter valid input (0-9 only number)</span>
+    <br>
+
+    <label>Email ID: </label>
+    <input type="email" name="EmailId" id="EmailId" placeholder="Email ID" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" ngModel #EmailId="ngModel" required/>
+
+    <br>
+    <span *ngIf="EmailId.invalid && EmailId.touched" style="color: red;">Please enter valid input include (a-z+@+.com)</span>
+    <br>
+
+    <input type="submit" [disabled]="template.invalid">
+
+</form>
+
+<div *ngIf="msg" style="color: green">
+    <h1>Form Submitted SuccessFully</h1>
+</div>
